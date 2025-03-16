@@ -1,7 +1,15 @@
 # Instructions
 1. Open your AWS console
 
-2. Open CloudShell, Copy the AMI to your account
+2. Change your region to `us-east-2`. From the AWS console create an S3 bucket in `us-east-2` called `udacity-tf-<your_name>` e.g `udacity-tf-tscotto`
+    - click next until created.
+    - Update `_config.tf` in the `Lesson-5-rds-deploy/demo/zone1` folder with your S3 bucket name where you will replace `<your_name>` with your name
+
+3. Change your region to `us-west-1`. From the AWS console create an S3 bucket in `us-west-1` called `udacity-tf-<your_name>` e.g `udacity-tf-tscotto`
+    - click next until created.
+    - Update `_config.tf` in the `Lesson-5-rds-deploy/demo/zone2` folder with your S3 bucket name where you will replace `<your_name>` with your name
+
+4. Open CloudShell, Copy the AMI to your account
 
    **Restore image**
     ```shell
@@ -16,15 +24,19 @@
 
     <!-- - Set your aws cli config to `us-east-2` -->
 
-3. Change your region to `us-east-2`. From the AWS console create an S3 bucket in `us-east-2` called `udacity-tf-<your_name>` e.g `udacity-tf-tscotto`
-    - click next until created.
-    - Update `_config.tf` in the `Lesson-5-rds-deploy/demo/zone1` folder with your S3 bucket name where you will replace `<your_name>` with your name
+5. Open CloudShell, Availability zones for each region by running the following commands:
 
-4. Change your region to `us-west-1`. From the AWS console create an S3 bucket in `us-west-1` called `udacity-tf-<your_name>` e.g `udacity-tf-tscotto`
-    - click next until created.
-    - Update `_config.tf` in the `Lesson-5-rds-deploy/demo/zone2` folder with your S3 bucket name where you will replace `<your_name>` with your name
+    For `us-east-2`:
+    ```bash
+    aws ec2 describe-availability-zones --region us-east-2
+    ```
 
-5. Setup your CloudShell. Open CloudShell in the `us-east-2` or `us-west-1` region. Install the following on both regions one by one:
+    For `us-west-1`:
+    ```bash
+    aws ec2 describe-availability-zones --region us-west-1
+    ```
+
+6. Setup your CloudShell. Open CloudShell in the `us-east-2` or `us-west-1` region. Install the following on both regions one by one:
 
 - terraform
     - `wget https://releases.hashicorp.com/terraform/1.10.3/terraform_1.10.3_linux_amd64.zip`
@@ -32,13 +44,19 @@
     - `mkdir ~/bin`
     - `mv terraform ~/bin`
 
-6. Deploy Terraform infrastructure
-    - Clone the starter code from the git repo to a folder CloudShell
-    - `cd` into the `starter` folder
+7. Deploy Terraform infrastructure zone1
+    - Clone the demo code from the git repo to a folder CloudShell
+    - `cd` into the `demo/zone1` folder
     - `terraform init`
     - `terraform apply`
 
-7. At the end of your lesson, run `terraform destroy` and allow it to destroy all your resources
+8. Deploy Terraform infrastructure zone2
+    - Clone the demo code from the git repo to a folder CloudShell
+    - `cd` into the `demo/zone2` folder
+    - `terraform init`
+    - `terraform apply`
+
+9. At the end of your lesson, run `terraform destroy` and allow it to destroy all your resources
 
 ## Destroy it all
 ### Step 1: Destroy Resources in Zone 1 Folder
