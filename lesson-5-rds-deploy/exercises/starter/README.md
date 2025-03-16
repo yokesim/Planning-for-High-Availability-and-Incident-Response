@@ -1,3 +1,14 @@
+# Exercise: Geo-Replication for SQL Instances
+
+In this exercise, you will configure Amazon RDS for high availability, deploying a multi-AZ architecture.
+
+# Key Requirements
+
+- The VPC has IPs in multiple availability zones (VPC)
+- Create 2 instance nodes for each cluster (primary and secondary clusters)
+- Each cluster must have multiple availability zones
+- zone1 will replicate to a cluster in zone2
+
 # Instructions
 1. Open your AWS console
 
