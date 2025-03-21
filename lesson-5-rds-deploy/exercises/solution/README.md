@@ -47,6 +47,7 @@ This folder should contain the solution to the exercise. This would be added to 
     - `unzip terraform_1.10.3_linux_amd64.zip`
     - `mkdir ~/bin`
     - `mv terraform ~/bin`
+    - `export TF_PLUGIN_CACHE_DIR="/tmp"`
 
 7. Deploy Terraform infrastructure zone1
     - Clone the solution code from the git repo to a folder CloudShell
